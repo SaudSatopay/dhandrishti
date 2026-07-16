@@ -43,10 +43,7 @@ body { background: #222; font-family: var(--sans); }
   -webkit-mask-image: radial-gradient(900px 600px at 50% 0%, #000 25%, transparent 95%);
   mask-image: radial-gradient(900px 600px at 50% 0%, #000 25%, transparent 95%);
 }
-.slide::after {
-  content: ""; position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+/* film grain omitted: incompressible noise rasterizes to ~3MB per slide in PDF */
 .slide > * { position: relative; z-index: 1; }
 
 /* chrome */
@@ -304,7 +301,7 @@ img.shot { border-radius: 14px; border: 1px solid var(--edge); box-shadow: 0 24p
     <h1 class="title">The command deck — <em>running, offline, bilingual</em></h1>
   </div>
   <div class="body" style="display:flex;gap:26px">
-    <img class="shot" src="../assets/ui_overview.png" width="640" alt="">
+    <img class="shot" src="../assets/ui_overview.jpg" width="640" alt="">
     <div style="flex:1;display:flex;flex-direction:column;gap:12px;padding-top:6px">
       <div class="card" style="padding:14px 18px">
         <div class="mono" style="font-size:10.5px;letter-spacing:2px;color:var(--gold)">LIVE ALERT TICKER</div>
@@ -335,7 +332,7 @@ img.shot { border-radius: 14px; border: 1px solid var(--edge); box-shadow: 0 24p
     <h1 class="title"><em>Nine weeks</em> of warning before the balance hits zero</h1>
   </div>
   <div class="body" style="display:flex;gap:26px">
-    <img class="shot" src="../assets/ui_drawer_story.png" width="560" alt="">
+    <img class="shot" src="../assets/ui_drawer_story.jpg" width="560" alt="">
     <div style="flex:1;display:flex;flex-direction:column;gap:14px">
       <div style="font-size:15.5px;line-height:1.6;color:var(--ink2)">
         <b style="color:var(--ink)">Risk 79/100 — flagged today.</b>
@@ -343,7 +340,7 @@ img.shot { border-radius: 14px; border: 1px solid var(--edge); box-shadow: 0 24p
         reasons and one concrete action: <b style="color:var(--gold-hi)">pre-approve a working-capital line now</b> —
         in Hindi if she prefers. A missed EMI would have surfaced this ~2 months later.
       </div>
-      <img class="shot" src="../assets/ui_stress_chart.png" width="100%" alt="">
+      <img class="shot" src="../assets/ui_stress_chart.jpg" width="100%" alt="">
       <div style="display:flex;gap:10px">
         <span class="chip" style="color:var(--crit);border-color:rgba(224,82,82,0.5)">▲ liquidity crunch · wk 9</span>
         <span class="chip" style="color:var(--warn);border-color:rgba(250,178,25,0.4)">EMI 38% of inflows</span>
