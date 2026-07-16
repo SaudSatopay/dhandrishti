@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DhanDrishti — Pitch Deck</title>
+<style>
+/* ============ DhanDrishti deck · night-ledger observatory ============ */
+@page { size: 13.333in 7.5in; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box;
+    print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+:root {
+  --bg0: #0a0d1c; --bg1: #10142a; --bg2: #151b38;
+  --edge: rgba(178,192,255,0.12); --edge-hi: rgba(217,166,46,0.4);
+  --ink: #f2f0e7; --ink2: #bcc2dc; --muted: #7d84a6;
+  --gold: #d9a62e; --gold-hi: #f3c95c; --blue: #3987e5; --blue-hi: #6fb0ff;
+  --good: #21b04b; --warn: #fab219; --crit: #e05252;
+  --disp: "Bahnschrift", "Arial Narrow", sans-serif;
+  --serif: Georgia, "Nirmala UI", serif;
+  --sans: "Segoe UI", "Nirmala UI", sans-serif;
+  --mono: Consolas, monospace;
+}
+body { background: #222; font-family: var(--sans); }
+.slide {
+  position: relative; width: 1280px; height: 720px; overflow: hidden;
+  background:
+    radial-gradient(900px 420px at 10% -8%, rgba(217,166,46,0.09), transparent 60%),
+    radial-gradient(1000px 560px at 92% 6%, rgba(57,135,229,0.11), transparent 60%),
+    radial-gradient(700px 700px at 50% 118%, rgba(74,58,167,0.13), transparent 65%),
+    var(--bg0);
+  color: var(--ink);
+  page-break-after: always; break-after: page;
+  margin: 0 auto 14px;
+}
+@media print { .slide { margin: 0; } body { background: none; } }
+
+/* grain + grid */
+.slide::before {
+  content: ""; position: absolute; inset: 0; opacity: 0.4; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(188,194,220,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(188,194,220,0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(900px 600px at 50% 0%, #000 25%, transparent 95%);
+  mask-image: radial-gradient(900px 600px at 50% 0%, #000 25%, transparent 95%);
+}
+.slide::after {
+  content: ""; position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.slide > * { position: relative; z-index: 1; }
+
+/* chrome */
+.kick {
+  font-family: var(--mono); font-size: 13px; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--gold); display: flex; align-items: center; gap: 14px;
+}
+.kick::after { content: ""; height: 1px; width: 110px; background: linear-gradient(90deg, var(--gold), transparent); }
+h1.title {
+  font-family: var(--disp); font-stretch: condensed; font-weight: 700;
+  font-size: 46px; line-height: 1.02; letter-spacing: 0.5px; text-transform: uppercase;
+  margin-top: 12px;
+}
+h1.title em { font-family: var(--serif); font-style: italic; font-weight: 500; text-transform: none;
+  color: var(--gold-hi); letter-spacing: 0; }
+.head { padding: 44px 58px 0; }
+.body { padding: 24px 58px 0; }
+.foot {
+  position: absolute; left: 58px; right: 58px; bottom: 26px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--mono); font-size: 10.5px; color: var(--muted); letter-spacing: 1px;
+}
+.foot b { color: var(--ink2); font-weight: 600; }
+.foot .no { color: var(--gold); font-size: 12px; }
+
+/* components */
+.card {
+  background: linear-gradient(180deg, rgba(21,27,56,0.75), rgba(16,20,42,0.92));
+  border: 1px solid var(--edge); border-radius: 16px;
+}
+.statN { font-family: var(--disp); font-stretch: condensed; font-weight: 700; letter-spacing: 0; }
+.mono { font-family: var(--mono); }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid var(--edge); border-radius: 999px; padding: 7px 16px; color: var(--ink2);
+}
+svg text { font-family: var(--sans); }
+svg .t-mono { font-family: var(--mono); }
+svg .t-disp { font-family: var(--disp); font-stretch: condensed; font-weight: 700; }
+img.shot { border-radius: 14px; border: 1px solid var(--edge); box-shadow: 0 24px 70px rgba(0,0,0,0.55); }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · TITLE ============ -->
+<section class="slide">
+  <svg width="1280" height="720" viewBox="0 0 1280 720" style="position:absolute;inset:0" fill="none" aria-hidden="true">
+    <circle cx="1120" cy="60" r="300" stroke="#232b52" stroke-width="1.2"/>
+    <circle cx="1120" cy="60" r="215" stroke="#232b52" stroke-width="1.2"/>
+    <circle cx="1120" cy="60" r="130" stroke="#d9a62e" stroke-width="1.4" opacity="0.75"/>
+    <!-- decorative pulse -->
+    <path d="M-10 610 L120 604 L200 570 L290 596 L360 540 L470 586 L560 552 L640 620 L730 648 L830 640 L905 664 L980 652 L1070 668 L1180 660 L1290 666"
+          stroke="url(#pg)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="730" cy="648" r="7" fill="#e05252"/>
+    <circle cx="730" cy="648" r="14" stroke="#e05252" stroke-width="1.5" opacity="0.5"/>
+    <text x="752" y="640" class="t-mono" font-size="12.5" fill="#e05252" letter-spacing="1.5">▲ EARLY WARNING · WK 9</text>
+    <defs>
+      <linearGradient id="pg" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#f3c95c"/><stop offset="0.55" stop-color="#d9a62e"/><stop offset="1" stop-color="#3987e5"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div style="padding:88px 58px 0">
+    <svg width="72" height="72" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="17" stroke="#d9a62e" stroke-width="2.4"/>
+      <path d="M6 22 Q13 12 20 20 T34 18" stroke="#d9a62e" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="3" fill="#d9a62e"/>
+    </svg>
+    <div style="margin-top:26px">
+      <span class="statN" style="font-size:92px;color:var(--ink)">DHANDRISHTI</span>
+      <span class="statN" style="font-family:var(--serif);font-weight:500;font-size:56px;color:var(--gold);margin-left:18px">धन-दृष्टि</span>
+    </div>
+    <div style="font-family:var(--serif);font-style:italic;font-size:30px;color:#e8ecf6;margin-top:14px;line-height:1.3">
+      See the <span style="color:var(--gold-hi)">flow</span> — before it runs dry.
+    </div>
+    <div style="font-size:16.5px;color:var(--ink2);margin-top:20px;max-width:760px;line-height:1.55">
+      Cash-flow foresight &amp; early-warning intelligence for rural micro enterprises —
+      probabilistic 12-week forecasts, calibrated risk flags, and <b style="color:var(--ink)">bilingual reason codes</b> a field officer can act on.
+    </div>
+    <div style="display:flex;gap:12px;margin-top:30px">
+      <span class="chip" style="border-color:var(--edge-hi);color:var(--gold)">NABARD Hackathon · GFF 2026 · Round 1</span>
+      <span class="chip">Working prototype — every number is measured</span>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · AI-driven cash flow prediction &amp; risk flagging for rural micro enterprises</span><span class="no">01</span></div>
+</section>
+
+<!-- ============ 2 · PROBLEM ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">The problem</div>
+    <h1 class="title">Bharat's micro enterprises are <em>credit-invisible</em></h1>
+  </div>
+  <div class="body" style="display:flex;gap:22px">
+    <div style="flex:1.35;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:16px">
+        <div class="card" style="flex:1;padding:22px 24px 18px">
+          <div class="statN" style="font-size:64px;color:var(--gold-hi)">14%</div>
+          <div style="font-size:13.5px;color:var(--ink2);margin-top:2px">of India's 6.3 crore MSMEs have<br>formal credit access <span class="mono" style="font-size:10px;color:var(--muted)">· DELOITTE 2025</span></div>
+        </div>
+        <div class="card" style="flex:1;padding:22px 24px 18px">
+          <div class="statN" style="font-size:64px;color:var(--gold-hi)">₹25L Cr+</div>
+          <div style="font-size:13.5px;color:var(--ink2);margin-top:2px">financing gap — worst in rural<br>districts: ~32% vs ~20% urban</div>
+        </div>
+      </div>
+      <div class="card" style="padding:20px 24px 16px">
+        <div class="statN" style="font-size:40px;color:var(--crit)">Detection happens at default.</div>
+        <div style="font-size:14px;color:var(--ink2);margin-top:6px;line-height:1.55">
+          Kirana stores, dairy units, tailors, agri-input dealers — cash-heavy, seasonal, no audited books.
+          Field officers carry hundreds of accounts with <b style="color:var(--ink)">no forward-looking tooling</b>:
+          by the time stress is visible in an EMI, the intervention window has closed.
+        </div>
+      </div>
+    </div>
+    <!-- funnel diagram -->
+    <div class="card" style="flex:1;padding:20px 24px">
+      <div class="mono" style="font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase">The invisibility funnel</div>
+      <svg width="100%" height="360" viewBox="0 0 420 360" fill="none">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7d84a6"/></marker></defs>
+        <rect x="10" y="26" width="400" height="52" rx="10" fill="rgba(57,135,229,0.14)" stroke="#3987e5"/>
+        <text x="30" y="50" fill="#f2f0e7" font-size="15" font-weight="600">6.3 crore MSMEs</text>
+        <text x="30" y="68" fill="#bcc2dc" font-size="11.5">≈ 11 crore livelihoods · mostly rural &amp; micro</text>
+        <path d="M210 82 v26" stroke="#7d84a6" stroke-width="1.5" marker-end="url(#ar)"/>
+        <rect x="60" y="112" width="300" height="52" rx="10" fill="rgba(217,166,46,0.12)" stroke="#d9a62e"/>
+        <text x="80" y="136" fill="#f2f0e7" font-size="15" font-weight="600">Digitally visible (UPI/QR)</text>
+        <text x="80" y="154" fill="#bcc2dc" font-size="11.5">payments leave a trail — but nobody reads it</text>
+        <path d="M210 168 v26" stroke="#7d84a6" stroke-width="1.5" marker-end="url(#ar)"/>
+        <rect x="110" y="198" width="200" height="52" rx="10" fill="rgba(224,82,82,0.12)" stroke="#e05252"/>
+        <text x="130" y="222" fill="#f2f0e7" font-size="15" font-weight="600">Bureau-scored</text>
+        <text x="130" y="240" fill="#bcc2dc" font-size="11.5">thin files · stale data</text>
+        <path d="M210 254 v26" stroke="#7d84a6" stroke-width="1.5" marker-end="url(#ar)"/>
+        <rect x="150" y="284" width="120" height="46" rx="10" fill="rgba(33,176,75,0.12)" stroke="#21b04b"/>
+        <text x="170" y="306" fill="#f2f0e7" font-size="14.5" font-weight="600">Formal credit</text>
+        <text x="170" y="322" fill="#bcc2dc" font-size="11.5">just 14%</text>
+        <text x="330" y="315" fill="#e05252" font-size="12.5" font-family="Consolas">← the 86%</text>
+      </svg>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">02</span></div>
+</section>
+
+<!-- ============ 3 · THE SIGNAL EXISTS ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">The opening</div>
+    <h1 class="title">The signal exists — <em>nobody has stitched it</em></h1>
+  </div>
+  <div class="body">
+    <svg width="1164" height="430" viewBox="0 0 1164 430" fill="none">
+      <defs>
+        <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d9a62e"/></marker>
+        <linearGradient id="fl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3987e5" stop-opacity="0.7"/><stop offset="1" stop-color="#d9a62e"/></linearGradient>
+      </defs>
+      <!-- source nodes -->
+      <g>
+        <rect x="10" y="20" width="330" height="96" rx="14" fill="rgba(21,27,56,0.85)" stroke="#3987e5"/>
+        <text x="34" y="55" fill="#6fb0ff" font-size="20" font-weight="700">⚡ UPI</text>
+        <text x="34" y="80" fill="#f2f0e7" font-size="14">≈ 21.7 billion transactions / month</text>
+        <text x="34" y="100" fill="#7d84a6" font-size="12">revenue rhythm · counterparties · ticket size</text>
+
+        <rect x="10" y="150" width="330" height="96" rx="14" fill="rgba(21,27,56,0.85)" stroke="#3987e5"/>
+        <text x="34" y="185" fill="#6fb0ff" font-size="20" font-weight="700">🏦 Account Aggregator</text>
+        <text x="34" y="210" fill="#f2f0e7" font-size="14">₹1.67 lakh crore disbursed on AA rails, FY25</text>
+        <text x="34" y="230" fill="#7d84a6" font-size="12">consented bank statements, on tap</text>
+
+        <rect x="10" y="280" width="330" height="96" rx="14" fill="rgba(21,27,56,0.85)" stroke="#3987e5"/>
+        <text x="34" y="315" fill="#6fb0ff" font-size="20" font-weight="700">🌾 Open public data</text>
+        <text x="34" y="340" fill="#f2f0e7" font-size="14">Agmarknet mandi · eNAM · IMD monsoon</text>
+        <text x="34" y="360" fill="#7d84a6" font-size="12">the context that drives rural cash cycles</text>
+      </g>
+      <!-- flows -->
+      <path d="M340 68 C 470 68 480 190 590 196" stroke="url(#fl)" stroke-width="2.5" marker-end="url(#ag)"/>
+      <path d="M340 198 C 440 198 470 198 588 198" stroke="url(#fl)" stroke-width="2.5" marker-end="url(#ag)"/>
+      <path d="M340 328 C 470 328 480 206 590 200" stroke="url(#fl)" stroke-width="2.5" marker-end="url(#ag)"/>
+      <!-- gap node -->
+      <g>
+        <circle cx="672" cy="198" r="66" fill="rgba(217,166,46,0.10)" stroke="#d9a62e" stroke-width="2" stroke-dasharray="7 6"/>
+        <text x="672" y="188" text-anchor="middle" fill="#f3c95c" font-size="30" class="t-disp">THE</text>
+        <text x="672" y="220" text-anchor="middle" fill="#f3c95c" font-size="30" class="t-disp">GAP</text>
+      </g>
+      <path d="M738 198 C 800 198 810 198 862 198" stroke="#d9a62e" stroke-width="3" marker-end="url(#ag)"/>
+      <!-- dhandrishti node -->
+      <g>
+        <rect x="866" y="120" width="288" height="156" rx="18" fill="rgba(217,166,46,0.10)" stroke="#d9a62e" stroke-width="2"/>
+        <text x="1010" y="168" text-anchor="middle" fill="#f2f0e7" font-size="26" class="t-disp">DHANDRISHTI</text>
+        <text x="1010" y="196" text-anchor="middle" fill="#bcc2dc" font-size="13.5">enterprise-level cash-flow</text>
+        <text x="1010" y="216" text-anchor="middle" fill="#bcc2dc" font-size="13.5">foresight — fused, consented,</text>
+        <text x="1010" y="236" text-anchor="middle" fill="#bcc2dc" font-size="13.5">explained in the field's language</text>
+      </g>
+      <text x="582" y="420" text-anchor="middle" fill="#7d84a6" font-size="13.5" font-family="Georgia" font-style="italic">The rails carry the signal — our contribution is the consent-first foresight layer on top.</text>
+    </svg>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">03</span></div>
+</section>
+
+<!-- ============ 4 · THE LOOP ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">The product</div>
+    <h1 class="title">One loop, every week: <em>foresee → flag → explain → act</em></h1>
+  </div>
+  <div class="body" style="display:flex;gap:10px;align-items:center">
+    <!-- circular loop -->
+    <svg width="470" height="440" viewBox="0 0 470 440" fill="none">
+      <defs><marker id="aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d9a62e"/></marker></defs>
+      <circle cx="235" cy="220" r="128" stroke="rgba(217,166,46,0.25)" stroke-width="1.5"/>
+      <path d="M 235 92 A 128 128 0 0 1 355 175" stroke="#d9a62e" stroke-width="2.5" marker-end="url(#aw)"/>
+      <path d="M 363 220 A 128 128 0 0 1 300 330" stroke="#d9a62e" stroke-width="2.5" marker-end="url(#aw)"/>
+      <path d="M 235 348 A 128 128 0 0 1 115 265" stroke="#d9a62e" stroke-width="2.5" marker-end="url(#aw)"/>
+      <path d="M 107 220 A 128 128 0 0 1 170 110" stroke="#d9a62e" stroke-width="2.5" marker-end="url(#aw)"/>
+      <text x="235" y="206" text-anchor="middle" fill="#7d84a6" font-size="12" class="t-mono" letter-spacing="2">EVERY WEEK ·</text>
+      <text x="235" y="226" text-anchor="middle" fill="#7d84a6" font-size="12" class="t-mono" letter-spacing="2">EVERY ENTERPRISE</text>
+      <text x="235" y="252" text-anchor="middle" fill="#f3c95c" font-size="18" font-family="Georgia" font-style="italic">हर सप्ताह</text>
+      <g><rect x="163" y="34" width="144" height="52" rx="12" fill="#151b38" stroke="#3987e5"/>
+         <text x="235" y="57" text-anchor="middle" fill="#6fb0ff" font-size="16" class="t-disp">1 · FORESEE</text>
+         <text x="235" y="75" text-anchor="middle" fill="#bcc2dc" font-size="10.5">P10/P50/P90 · 12 weeks</text></g>
+      <g><rect x="352" y="192" width="112" height="52" rx="12" fill="#151b38" stroke="#e05252"/>
+         <text x="408" y="215" text-anchor="middle" fill="#e05252" font-size="16" class="t-disp">2 · FLAG</text>
+         <text x="408" y="233" text-anchor="middle" fill="#bcc2dc" font-size="10.5">score 0–100 + EWS</text></g>
+      <g><rect x="158" y="356" width="154" height="52" rx="12" fill="#151b38" stroke="#d9a62e"/>
+         <text x="235" y="379" text-anchor="middle" fill="#f3c95c" font-size="16" class="t-disp">3 · EXPLAIN</text>
+         <text x="235" y="397" text-anchor="middle" fill="#bcc2dc" font-size="10.5">EN + हिंदी reason codes</text></g>
+      <g><rect x="4" y="192" width="110" height="52" rx="12" fill="#151b38" stroke="#21b04b"/>
+         <text x="59" y="215" text-anchor="middle" fill="#21b04b" font-size="16" class="t-disp">4 · ACT</text>
+         <text x="59" y="233" text-anchor="middle" fill="#bcc2dc" font-size="10.5">one intervention</text></g>
+    </svg>
+    <!-- right rail -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+      <div class="card" style="padding:15px 20px">
+        <b style="font-size:15px;color:var(--blue-hi)">Foresee</b>
+        <span style="font-size:13.5px;color:var(--ink2)"> — conformally calibrated bands: the 80% band actually covers 80%. Decisions ride the stress path, not an average.</span>
+      </div>
+      <div class="card" style="padding:15px 20px">
+        <b style="font-size:15px;color:var(--crit)">Flag</b>
+        <span style="font-size:13.5px;color:var(--ink2)"> — liquidity crunch ahead · EMI stress · buyer concentration · payment irregularity · seasonal dip · negative trend.</span>
+      </div>
+      <div class="card" style="padding:15px 20px">
+        <b style="font-size:15px;color:var(--gold-hi)">Explain</b>
+        <span style="font-size:13.5px;color:var(--ink2)"> — "Revenue is down ~58% vs the same season last year" / "आय पिछले वर्ष से ~58% कम है" — TreeSHAP, templated, auditable.</span>
+      </div>
+      <div class="card" style="padding:15px 20px">
+        <b style="font-size:15px;color:var(--good)">Act</b>
+        <span style="font-size:13.5px;color:var(--ink2)"> — pre-approve working capital · restructure EMI post-harvest · diversify buyers. One concrete action per flag.</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">04</span></div>
+</section>
+
+<!-- ============ 5 · COMMAND DECK ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Live prototype — not a mockup</div>
+    <h1 class="title">The command deck — <em>running, offline, bilingual</em></h1>
+  </div>
+  <div class="body" style="display:flex;gap:26px">
+    <img class="shot" src="../assets/ui_overview.png" width="640" alt="">
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;padding-top:6px">
+      <div class="card" style="padding:14px 18px">
+        <div class="mono" style="font-size:10.5px;letter-spacing:2px;color:var(--gold)">LIVE ALERT TICKER</div>
+        <div style="font-size:13px;color:var(--ink2);margin-top:5px">Every HIGH/WATCH enterprise scrolls past with its top flag — click to drill in.</div>
+      </div>
+      <div class="card" style="padding:14px 18px">
+        <div class="mono" style="font-size:10.5px;letter-spacing:2px;color:var(--gold)">RISK-RANKED WATCHLIST</div>
+        <div style="font-size:13px;color:var(--ink2);margin-top:5px">200 enterprises · calibrated scores · sparklines · Ctrl+K palette · CSV export.</div>
+      </div>
+      <div class="card" style="padding:14px 18px">
+        <div class="mono" style="font-size:10.5px;letter-spacing:2px;color:var(--gold)">SCENARIO STUDIO</div>
+        <div style="font-size:13px;color:var(--ink2);margin-top:5px">Inflow shock · EMI moratorium · working-capital line → live ₹0-crossing verdict.</div>
+      </div>
+      <div class="card" style="padding:14px 18px">
+        <div class="mono" style="font-size:10.5px;letter-spacing:2px;color:var(--gold)">BUILT FOR LOW-NETWORK</div>
+        <div style="font-size:13px;color:var(--ink2);margin-top:5px">Zero CDNs, zero external fonts — the demo runs with the internet switched off.</div>
+      </div>
+      <div class="mono" style="font-size:11.5px;color:var(--muted);padding-left:4px">deep-link for the jury → <span style="color:var(--gold-hi)">localhost:8765/#ENT0178</span></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">05</span></div>
+</section>
+
+<!-- ============ 6 · DRILL-DOWN ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Live prototype — the drill-down</div>
+    <h1 class="title"><em>Nine weeks</em> of warning before the balance hits zero</h1>
+  </div>
+  <div class="body" style="display:flex;gap:26px">
+    <img class="shot" src="../assets/ui_drawer_story.png" width="560" alt="">
+    <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:15.5px;line-height:1.6;color:var(--ink2)">
+        <b style="color:var(--ink)">Risk 79/100 — flagged today.</b>
+        The stress path crosses ₹0 in week 9. The officer sees two flags, four plain-language
+        reasons and one concrete action: <b style="color:var(--gold-hi)">pre-approve a working-capital line now</b> —
+        in Hindi if she prefers. A missed EMI would have surfaced this ~2 months later.
+      </div>
+      <img class="shot" src="../assets/ui_stress_chart.png" width="100%" alt="">
+      <div style="display:flex;gap:10px">
+        <span class="chip" style="color:var(--crit);border-color:rgba(224,82,82,0.5)">▲ liquidity crunch · wk 9</span>
+        <span class="chip" style="color:var(--warn);border-color:rgba(250,178,25,0.4)">EMI 38% of inflows</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">06</span></div>
+</section>
+
+<!-- ============ 7 · ARCHITECTURE ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Under the hood</div>
+    <h1 class="title">Boring where it should be, <em>clever where it counts</em></h1>
+  </div>
+  <div class="body">
+    <svg width="1164" height="438" viewBox="0 0 1164 438" fill="none">
+      <defs>
+        <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d9a62e"/></marker>
+        <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3987e5"/></marker>
+      </defs>
+      <!-- rails column -->
+      <text x="10" y="24" fill="#7d84a6" font-size="11.5" class="t-mono" letter-spacing="2">CONSENT-FIRST RAILS</text>
+      <g>
+        <rect x="10" y="40" width="205" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="26" y="62" fill="#f2f0e7" font-size="13.5" font-weight="600">Account Aggregator</text><text x="26" y="80" fill="#7d84a6" font-size="11">bank + UPI statements</text>
+        <rect x="10" y="104" width="205" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="26" y="126" fill="#f2f0e7" font-size="13.5" font-weight="600">UPI / QR signals</text><text x="26" y="144" fill="#7d84a6" font-size="11">daily revenue proxy</text>
+        <rect x="10" y="168" width="205" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="26" y="190" fill="#f2f0e7" font-size="13.5" font-weight="600">SHG / JLG · Udyam</text><text x="26" y="208" fill="#7d84a6" font-size="11">vintage, group history</text>
+        <rect x="10" y="232" width="205" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="26" y="254" fill="#f2f0e7" font-size="13.5" font-weight="600">Agmarknet · IMD</text><text x="26" y="272" fill="#7d84a6" font-size="11">mandi + monsoon context</text>
+      </g>
+      <path d="M215 66 C 268 66 260 148 306 156" stroke="#3987e5" stroke-width="2" marker-end="url(#a3)"/>
+      <path d="M215 130 C 258 130 262 152 304 158" stroke="#3987e5" stroke-width="2" marker-end="url(#a3)"/>
+      <path d="M215 194 C 258 194 262 172 304 165" stroke="#3987e5" stroke-width="2" marker-end="url(#a3)"/>
+      <path d="M215 258 C 268 258 260 176 306 167" stroke="#3987e5" stroke-width="2" marker-end="url(#a3)"/>
+      <!-- core -->
+      <rect x="308" y="34" width="560" height="264" rx="18" fill="rgba(21,27,56,0.65)" stroke="rgba(217,166,46,0.55)" stroke-width="1.6"/>
+      <text x="330" y="62" fill="#f3c95c" font-size="13" class="t-mono" letter-spacing="2">DHANDRISHTI CORE · CPU-ONLY · ON-PREM AT AN RRB</text>
+      <rect x="330" y="132" width="150" height="60" rx="10" fill="#10142a" stroke="#bcc2dc" stroke-opacity="0.5"/>
+      <text x="405" y="158" text-anchor="middle" fill="#f2f0e7" font-size="13.5" font-weight="600">Feature store</text>
+      <text x="405" y="176" text-anchor="middle" fill="#7d84a6" font-size="11">28 weekly signals</text>
+      <path d="M480 150 h30" stroke="#d9a62e" stroke-width="2" marker-end="url(#a2)"/>
+      <path d="M480 172 C 500 172 500 226 516 228" stroke="#d9a62e" stroke-width="2" marker-end="url(#a2)"/>
+      <rect x="514" y="88" width="170" height="60" rx="10" fill="#10142a" stroke="#3987e5"/>
+      <text x="599" y="112" text-anchor="middle" fill="#6fb0ff" font-size="13.5" font-weight="600">Quantile forecaster</text>
+      <text x="599" y="130" text-anchor="middle" fill="#7d84a6" font-size="11">P10/P50/P90 + conformal</text>
+      <rect x="514" y="200" width="170" height="60" rx="10" fill="#10142a" stroke="#e05252"/>
+      <text x="599" y="224" text-anchor="middle" fill="#e05252" font-size="13.5" font-weight="600">Early-warning model</text>
+      <text x="599" y="242" text-anchor="middle" fill="#7d84a6" font-size="11">monotone + Platt-calibrated</text>
+      <path d="M684 118 C 706 118 706 150 722 152" stroke="#d9a62e" stroke-width="2" marker-end="url(#a2)"/>
+      <path d="M684 230 C 706 230 706 186 722 178" stroke="#d9a62e" stroke-width="2" marker-end="url(#a2)"/>
+      <rect x="724" y="132" width="126" height="66" rx="10" fill="#10142a" stroke="#d9a62e"/>
+      <text x="787" y="156" text-anchor="middle" fill="#f3c95c" font-size="13" font-weight="600">TreeSHAP →</text>
+      <text x="787" y="172" text-anchor="middle" fill="#f3c95c" font-size="13" font-weight="600">reason codes</text>
+      <text x="787" y="188" text-anchor="middle" fill="#7d84a6" font-size="10.5">EN + हिंदी · rules blend</text>
+      <text x="330" y="282" fill="#7d84a6" font-size="11.5" font-family="Georgia" font-style="italic">score and flags can never contradict — noisy-OR of calibrated model + transparent rules</text>
+      <!-- outputs -->
+      <path d="M868 165 h40" stroke="#d9a62e" stroke-width="2.5" marker-end="url(#a2)"/>
+      <text x="920" y="24" fill="#7d84a6" font-size="11.5" class="t-mono" letter-spacing="2">SURFACES</text>
+      <rect x="912" y="40" width="242" height="62" rx="10" fill="#151b38" stroke="#21b04b"/>
+      <text x="930" y="65" fill="#f2f0e7" font-size="13.5" font-weight="600">🖥 Field dashboard</text><text x="930" y="84" fill="#7d84a6" font-size="11">offline PWA · EN/हिंदी · scenario studio</text>
+      <rect x="912" y="116" width="242" height="62" rx="10" fill="#151b38" stroke="#21b04b"/>
+      <text x="930" y="141" fill="#f2f0e7" font-size="13.5" font-weight="600">🔌 Scoring API</text><text x="930" y="160" fill="#7d84a6" font-size="11">OCEN-style · bank LOS/LMS</text>
+      <rect x="912" y="192" width="242" height="62" rx="10" fill="#151b38" stroke="#21b04b" stroke-dasharray="5 4"/>
+      <text x="930" y="217" fill="#f2f0e7" font-size="13.5" font-weight="600">📱 SMS · WhatsApp · IVR</text><text x="930" y="236" fill="#7d84a6" font-size="11">vernacular nudges · roadmap</text>
+      <!-- privacy strip -->
+      <rect x="10" y="330" width="1144" height="58" rx="12" fill="rgba(33,176,75,0.08)" stroke="rgba(33,176,75,0.4)"/>
+      <text x="34" y="354" fill="#21b04b" font-size="13.5" font-weight="700">🛡 Privacy posture</text>
+      <text x="34" y="374" fill="#bcc2dc" font-size="12.5">no Aadhaar numbers · no location tracking · no scraping — pseudonymous features, logged AA consent artefacts, DPDP-aligned · cold-start via segment seasonality priors</text>
+    </svg>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">07</span></div>
+</section>
+
+<!-- ============ 8 · MEASURED RESULTS ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Measured, not promised</div>
+    <h1 class="title">Results on a 200-enterprise panel, <em>temporal holdout</em></h1>
+  </div>
+  <div class="body" style="display:flex;gap:22px">
+    <div style="flex:1.15">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="card" style="padding:18px 22px 14px"><div class="statN" style="font-size:56px;color:var(--blue-hi)">−25%</div><div style="font-size:12.5px;color:var(--ink2)">forecast MAE vs seasonal-naive baseline</div></div>
+        <div class="card" style="padding:18px 22px 14px"><div class="statN" style="font-size:56px;color:var(--blue-hi)">80%</div><div style="font-size:12.5px;color:var(--ink2)">P10–P90 coverage after conformal calibration</div></div>
+        <div class="card" style="padding:18px 22px 14px"><div class="statN" style="font-size:56px;color:var(--blue-hi)">0.83</div><div style="font-size:12.5px;color:var(--ink2)">early-warning AUC · 13× precision lift</div></div>
+        <div class="card" style="padding:18px 22px 14px"><div class="statN" style="font-size:56px;color:var(--blue-hi)">3 wks</div><div style="font-size:12.5px;color:var(--ink2)">median warning lead before distress</div></div>
+      </div>
+      <div class="card" style="margin-top:14px;padding:14px 20px;border-color:rgba(33,176,75,0.4)">
+        <span style="font-size:13px;color:var(--ink2)"><b style="color:var(--good)">Honest posture:</b> synthetic-but-realistic panel — harvest/festival/monsoon seasonality, UPI drift, household draws, <b style="color:var(--ink)">ground-truth distress ramps</b> — so accuracy is measurable. Every top-10 alert is a genuine engineered distress case.</span>
+      </div>
+    </div>
+    <!-- native watchlist bars -->
+    <div class="card" style="flex:1;padding:20px 24px">
+      <div class="mono" style="font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase">Watchlist by segment · 10 HIGH + 4 WATCH of 200</div>
+      <svg width="100%" height="330" viewBox="0 0 470 330" fill="none">
+        <g font-size="13.5" fill="#bcc2dc">
+          <text x="118" y="46" text-anchor="end">Dairy</text>
+          <rect x="130" y="30" width="240" height="22" rx="5" fill="#e05252"/>
+          <text x="382" y="46" fill="#f2f0e7" font-weight="700">4</text>
+          <text x="118" y="98" text-anchor="end">Food processing</text>
+          <rect x="130" y="82" width="118" height="22" rx="5" fill="#e05252"/>
+          <rect x="252" y="82" width="118" height="22" rx="5" fill="#fab219"/>
+          <text x="382" y="98" fill="#f2f0e7" font-weight="700">4</text>
+          <text x="118" y="150" text-anchor="end">Tailoring</text>
+          <rect x="130" y="134" width="120" height="22" rx="5" fill="#e05252"/>
+          <text x="262" y="150" fill="#f2f0e7" font-weight="700">2</text>
+          <text x="118" y="202" text-anchor="end">Handloom</text>
+          <rect x="130" y="186" width="120" height="22" rx="5" fill="#fab219"/>
+          <text x="262" y="202" fill="#f2f0e7" font-weight="700">2</text>
+          <text x="118" y="254" text-anchor="end">Agri inputs</text>
+          <rect x="130" y="238" width="60" height="22" rx="5" fill="#e05252"/>
+          <text x="202" y="254" fill="#f2f0e7" font-weight="700">1</text>
+          <text x="118" y="306" text-anchor="end">Kirana</text>
+          <rect x="130" y="290" width="60" height="22" rx="5" fill="#e05252"/>
+          <text x="202" y="306" fill="#f2f0e7" font-weight="700">1</text>
+        </g>
+        <g font-size="12" font-family="Consolas">
+          <rect x="316" y="292" width="13" height="13" rx="3" fill="#e05252"/><text x="336" y="303" fill="#bcc2dc">HIGH</text>
+          <rect x="392" y="292" width="13" height="13" rx="3" fill="#fab219"/><text x="412" y="303" fill="#bcc2dc">WATCH</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">08</span></div>
+</section>
+
+<!-- ============ 9 · CONSENT RADIAL ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Data strategy</div>
+    <h1 class="title">Consent-first and <em>DPI-native</em> by design</h1>
+  </div>
+  <div class="body" style="display:flex;gap:16px;align-items:center">
+    <svg width="620" height="430" viewBox="0 0 620 430" fill="none">
+      <defs><marker id="a4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3987e5"/></marker></defs>
+      <!-- consent ring -->
+      <circle cx="310" cy="215" r="122" stroke="#21b04b" stroke-width="1.8" stroke-dasharray="8 7"/>
+      <text x="310" y="86" text-anchor="middle" fill="#21b04b" font-size="11.5" class="t-mono" letter-spacing="2">CONSENT BOUNDARY · AA FRAMEWORK</text>
+      <!-- center -->
+      <circle cx="310" cy="215" r="64" fill="rgba(217,166,46,0.12)" stroke="#d9a62e" stroke-width="2"/>
+      <text x="310" y="204" text-anchor="middle" fill="#f2f0e7" font-size="14.5" font-weight="700">Rural micro</text>
+      <text x="310" y="222" text-anchor="middle" fill="#f2f0e7" font-size="14.5" font-weight="700">enterprise</text>
+      <text x="310" y="242" text-anchor="middle" fill="#7d84a6" font-size="10.5">pseudonymous ID</text>
+      <!-- sources -->
+      <g>
+        <rect x="6" y="52" width="170" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="22" y="74" fill="#f2f0e7" font-size="12.5" font-weight="600">🏦 Bank / UPI stmts</text><text x="22" y="92" fill="#7d84a6" font-size="10.5">via Account Aggregator</text>
+        <path d="M176 82 C 226 92 236 132 262 158" stroke="#3987e5" stroke-width="1.8" marker-end="url(#a4)"/>
+        <rect x="6" y="322" width="170" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="22" y="344" fill="#f2f0e7" font-size="12.5" font-weight="600">👥 SHG/JLG ledgers</text><text x="22" y="362" fill="#7d84a6" font-size="10.5">NABARD federations</text>
+        <path d="M176 344 C 226 336 238 300 262 274" stroke="#3987e5" stroke-width="1.8" marker-end="url(#a4)"/>
+        <rect x="444" y="52" width="170" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="460" y="74" fill="#f2f0e7" font-size="12.5" font-weight="600">⚡ QR / merchant</text><text x="460" y="92" fill="#7d84a6" font-size="10.5">daily revenue proxy</text>
+        <path d="M444 82 C 396 92 384 132 358 158" stroke="#3987e5" stroke-width="1.8" marker-end="url(#a4)"/>
+        <rect x="444" y="322" width="170" height="52" rx="10" fill="#151b38" stroke="#3987e5"/>
+        <text x="460" y="344" fill="#f2f0e7" font-size="12.5" font-weight="600">🌾 Mandi · monsoon</text><text x="460" y="362" fill="#7d84a6" font-size="10.5">open data — no consent needed</text>
+        <path d="M444 344 C 396 336 384 300 358 274" stroke="#3987e5" stroke-width="1.8" marker-end="url(#a4)"/>
+      </g>
+      <text x="310" y="416" text-anchor="middle" fill="#7d84a6" font-size="12.5" font-family="Georgia" font-style="italic">every pull is consented, logged and purpose-bound — data capital owned by the entrepreneur</text>
+    </svg>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+      <div class="card" style="padding:16px 20px">
+        <b style="color:var(--good);font-size:14.5px">🛡 What we never touch</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">No Aadhaar numbers · no location tracking · no social scraping. DPDP-aligned from day one.</div>
+      </div>
+      <div class="card" style="padding:16px 20px">
+        <b style="color:var(--gold-hi);font-size:14.5px">🌱 Cold start, solved</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">New enterprises inherit segment seasonality priors (a dairy's rhythm ≠ a kirana's) that refine as history accrues.</div>
+      </div>
+      <div class="card" style="padding:16px 20px">
+        <b style="color:var(--blue-hi);font-size:14.5px">🏛 Why public institutions can deploy it</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">No proprietary data moat — open rails + consent. The scoring rail can be a public good for RRBs, DCCBs and SHG federations.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">09</span></div>
+</section>
+
+<!-- ============ 10 · FIELD ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Built for the field</div>
+    <h1 class="title">If a BC sakhi can't use it, <em>it doesn't count</em></h1>
+  </div>
+  <div class="body">
+    <div style="display:flex;gap:16px">
+      <div class="card" style="flex:1;padding:20px 22px">
+        <div style="font-size:26px">📴</div>
+        <b style="font-size:16px">Works where the network doesn't</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:7px;line-height:1.6">Offline-capable PWA, zero external assets, SMS fallback on the roadmap. The demo runs with Wi-Fi off.</div>
+      </div>
+      <div class="card" style="flex:1;padding:20px 22px">
+        <div style="font-size:26px">🗣</div>
+        <b style="font-size:16px">Speaks the officer's language</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:7px;line-height:1.6">Every reason, action, SMS and printed brief in English + हिंदी — extensible to Marathi, Telugu, Bangla.</div>
+      </div>
+      <div class="card" style="flex:1;padding:20px 22px">
+        <div style="font-size:26px">🖥</div>
+        <b style="font-size:16px">Runs on what banks own</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:7px;line-height:1.6">CPU-only LightGBM, retrains in minutes, one server per district pilot — on-prem at an RRB, no cloud dependency.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px;padding:18px 24px;border-color:var(--edge-hi);background:linear-gradient(180deg, rgba(29,42,82,0.9), rgba(16,20,42,0.95))">
+      <div class="mono" style="font-size:10.5px;letter-spacing:2.5px;color:var(--gold)">SAMPLE ALERT — GENERATED BY THE SYSTEM, AS THE FIELD OFFICER SEES IT</div>
+      <div style="font-size:14.5px;margin-top:10px;line-height:1.7">
+        ▲ <b>Liquidity crunch ahead</b> — stress-case balance dips below zero in 9 weeks.&nbsp;
+        <span style="color:var(--gold-hi)">→ Pre-approve a short-term working-capital line; schedule a field visit this week.</span>
+      </div>
+      <div style="font-size:14.5px;color:var(--ink2);margin-top:6px;line-height:1.8">
+        ▲ <b style="color:var(--ink)">नकदी संकट की आशंका</b> — तनाव-परिदृश्य में 9 सप्ताह में शेष राशि शून्य से नीचे जा सकती है।&nbsp;
+        <span style="color:var(--gold-hi)">→ अभी अल्पकालिक कार्यशील-पूंजी सीमा स्वीकृत करें; इसी सप्ताह क्षेत्र भ्रमण तय करें।</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:16px">
+      <span class="chip">📱 SMS nudge preview — built</span>
+      <span class="chip">🖨 one-page field brief — built</span>
+      <span class="chip">🎛 scenario studio — built</span>
+      <span class="chip">⌨ Ctrl+K palette — built</span>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">10</span></div>
+</section>
+
+<!-- ============ 11 · IMPACT ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Impact</div>
+    <h1 class="title">One rail, <em>three winners</em></h1>
+  </div>
+  <div class="body" style="display:flex;gap:20px;align-items:center">
+    <svg width="440" height="420" viewBox="0 0 440 420" fill="none">
+      <path d="M220 96 L84 330 L356 330 Z" stroke="rgba(217,166,46,0.4)" stroke-width="1.6"/>
+      <circle cx="220" cy="96" r="52" fill="#151b38" stroke="#3987e5" stroke-width="2"/>
+      <text x="220" y="92" text-anchor="middle" fill="#6fb0ff" font-size="24">🏦</text>
+      <text x="220" y="116" text-anchor="middle" fill="#f2f0e7" font-size="12.5" font-weight="700">Lenders</text>
+      <circle cx="84" cy="330" r="52" fill="#151b38" stroke="#d9a62e" stroke-width="2"/>
+      <text x="84" y="326" text-anchor="middle" fill="#f3c95c" font-size="24">🧑‍🌾</text>
+      <text x="84" y="350" text-anchor="middle" fill="#f2f0e7" font-size="12.5" font-weight="700">Entrepreneurs</text>
+      <circle cx="356" cy="330" r="52" fill="#151b38" stroke="#21b04b" stroke-width="2"/>
+      <text x="356" y="326" text-anchor="middle" fill="#21b04b" font-size="24">🏛</text>
+      <text x="356" y="350" text-anchor="middle" fill="#f2f0e7" font-size="12.5" font-weight="700">NABARD</text>
+      <circle cx="220" cy="252" r="58" fill="rgba(217,166,46,0.1)" stroke="#d9a62e" stroke-width="2" stroke-dasharray="6 5"/>
+      <text x="220" y="243" text-anchor="middle" fill="#f3c95c" font-size="15" class="t-disp">ONE PUBLIC</text>
+      <text x="220" y="262" text-anchor="middle" fill="#f3c95c" font-size="15" class="t-disp">SCORING RAIL</text>
+      <text x="220" y="281" text-anchor="middle" fill="#7d84a6" font-size="10.5">shared, consented, explainable</text>
+    </svg>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+      <div class="card" style="padding:16px 20px;border-left:3px solid var(--blue)">
+        <b style="font-size:15px;color:var(--blue-hi)">Lenders — RRBs, DCCBs, MFIs</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">Weeks of early warning → intervene before slippage; an explainable, auditable basis for cash-flow-based lending; portfolio heatmaps by district &amp; segment.</div>
+      </div>
+      <div class="card" style="padding:16px 20px;border-left:3px solid var(--gold)">
+        <b style="font-size:15px;color:var(--gold-hi)">Rural entrepreneurs</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">A bankable, consent-based cash-flow record — the on-ramp from moneylenders to formal credit; vernacular nudges to plan for the lean season.</div>
+      </div>
+      <div class="card" style="padding:16px 20px;border-left:3px solid var(--good)">
+        <b style="font-size:15px;color:var(--good)">NABARD &amp; policy</b>
+        <div style="font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.6">District-level early-warning view across the rural portfolio; evidence for scheme design and timing; a reusable public-good rail for the SHG/RRB ecosystem.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">11</span></div>
+</section>
+
+<!-- ============ 12 · ROADMAP ============ -->
+<section class="slide">
+  <div class="head">
+    <div class="kick">Roadmap</div>
+    <h1 class="title">From working prototype to <em>district pilot</em></h1>
+  </div>
+  <div class="body">
+    <svg width="1164" height="420" viewBox="0 0 1164 420" fill="none">
+      <path d="M80 150 H 1090" stroke="rgba(188,194,220,0.25)" stroke-width="2"/>
+      <!-- node 1 -->
+      <circle cx="120" cy="150" r="26" fill="#21b04b"/>
+      <text x="120" y="157" text-anchor="middle" fill="#0a0d1c" font-size="19" font-weight="800">✓</text>
+      <text x="120" y="102" text-anchor="middle" fill="#21b04b" font-size="12" class="t-mono" letter-spacing="2">NOW · DONE</text>
+      <text x="66" y="204" fill="#f2f0e7" font-size="18" class="t-disp">WORKING PROTOTYPE</text>
+      <text x="66" y="228" fill="#bcc2dc" font-size="12.5">Full pipeline: data → models → bilingual</text>
+      <text x="66" y="246" fill="#bcc2dc" font-size="12.5">dashboard + scenario studio.</text>
+      <text x="66" y="268" fill="#7d84a6" font-size="12">−25% MAE · AUC 0.83 · 3-wk lead · 80% bands</text>
+      <!-- node 2 -->
+      <circle cx="440" cy="150" r="26" fill="#3987e5"/>
+      <text x="440" y="157" text-anchor="middle" fill="#0a0d1c" font-size="17" font-weight="800">2</text>
+      <text x="440" y="102" text-anchor="middle" fill="#6fb0ff" font-size="12" class="t-mono" letter-spacing="2">JUL–AUG 2026</text>
+      <text x="386" y="204" fill="#f2f0e7" font-size="18" class="t-disp">ROUND 2 BUILD</text>
+      <text x="386" y="228" fill="#bcc2dc" font-size="12.5">AA-sandbox integration (Setu/Finvu),</text>
+      <text x="386" y="246" fill="#bcc2dc" font-size="12.5">SMS gateway pilot, demo video,</text>
+      <text x="386" y="264" fill="#bcc2dc" font-size="12.5">hardening + deployment guide.</text>
+      <!-- node 3 -->
+      <circle cx="760" cy="150" r="26" fill="#d9a62e"/>
+      <text x="760" y="157" text-anchor="middle" fill="#0a0d1c" font-size="17" font-weight="800">3</text>
+      <text x="760" y="102" text-anchor="middle" fill="#f3c95c" font-size="12" class="t-mono" letter-spacing="2">POST-GFF</text>
+      <text x="706" y="204" fill="#f2f0e7" font-size="18" class="t-disp">DISTRICT PILOT</text>
+      <text x="706" y="228" fill="#bcc2dc" font-size="12.5">One RRB/DCCB partner, 500–1,000</text>
+      <text x="706" y="246" fill="#bcc2dc" font-size="12.5">consented enterprises. Measure lead time,</text>
+      <text x="706" y="264" fill="#bcc2dc" font-size="12.5">intervention uptake, repayment vs control.</text>
+      <!-- node 4 -->
+      <circle cx="1064" cy="150" r="26" fill="#151b38" stroke="#d9a62e" stroke-width="2"/>
+      <text x="1064" y="157" text-anchor="middle" fill="#f3c95c" font-size="17" font-weight="800">4</text>
+      <text x="1064" y="102" text-anchor="middle" fill="#f3c95c" font-size="12" class="t-mono" letter-spacing="2">THEN</text>
+      <text x="984" y="204" fill="#f2f0e7" font-size="18" class="t-disp">SCALE VIA NABARD</text>
+      <text x="984" y="228" fill="#bcc2dc" font-size="12.5">State roll-out via the RRB/SHG</text>
+      <text x="984" y="246" fill="#bcc2dc" font-size="12.5">ecosystem · OCEN scoring API ·</text>
+      <text x="984" y="264" fill="#bcc2dc" font-size="12.5">more languages.</text>
+      <!-- success metric strip -->
+      <rect x="66" y="316" width="1032" height="62" rx="12" fill="rgba(217,166,46,0.07)" stroke="rgba(217,166,46,0.4)"/>
+      <text x="90" y="342" fill="#f3c95c" font-size="13.5" font-weight="700">🎯 Pilot success metric</text>
+      <text x="90" y="363" fill="#bcc2dc" font-size="12.5">not model AUC — intervention uptake and repayment outcomes vs control branches. Foresight only matters if it changes what happens in the field.</text>
+    </svg>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">12</span></div>
+</section>
+
+<!-- ============ 13 · CLOSE ============ -->
+<section class="slide">
+  <svg width="1280" height="720" viewBox="0 0 1280 720" style="position:absolute;inset:0" fill="none" aria-hidden="true">
+    <circle cx="140" cy="660" r="300" stroke="#232b52" stroke-width="1.2"/>
+    <circle cx="140" cy="660" r="200" stroke="#d9a62e" stroke-width="1" opacity="0.5"/>
+    <path d="M-10 96 L140 90 L230 60 L320 84 L400 40 L520 76 L640 52 L780 88 L900 70 L1040 92 L1180 78 L1290 86"
+          stroke="url(#pg2)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+    <defs><linearGradient id="pg2" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3987e5"/><stop offset="1" stop-color="#f3c95c"/></linearGradient></defs>
+  </svg>
+  <div style="padding:150px 58px 0">
+    <svg width="58" height="58" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="17" stroke="#d9a62e" stroke-width="2.4"/>
+      <path d="M6 22 Q13 12 20 20 T34 18" stroke="#d9a62e" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="3" fill="#d9a62e"/>
+    </svg>
+    <div class="statN" style="font-size:74px;line-height:1.06;margin-top:22px">SEEING CASH-FLOW STRESS<br><em style="font-family:var(--serif);font-weight:500;font-style:italic;text-transform:none;color:var(--gold-hi)">before it strikes.</em></div>
+    <div style="font-size:16px;color:var(--ink2);margin-top:26px">
+      <b style="color:var(--gold)">DhanDrishti</b> · धन-दृष्टि — cash-flow foresight &amp; early warning for rural micro enterprises
+    </div>
+    <div style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted);margin-top:26px">
+      Team «name» — «members &amp; roles» · «email» · «phone»
+    </div>
+    <div class="mono" style="font-size:11px;color:var(--muted);margin-top:34px;letter-spacing:1px">
+      github.com/SaudSatopay/dhandrishti · prototype runs offline on a laptop · synthetic data only · no real enterprise or personal data
+    </div>
+  </div>
+  <div class="foot"><span><b>DhanDrishti</b> · धन-दृष्टि — NABARD Hackathon @ GFF 2026</span><span class="no">13</span></div>
+</section>
+
+</body>
+</html>

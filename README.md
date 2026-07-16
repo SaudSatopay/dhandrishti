@@ -180,7 +180,8 @@ flowchart LR
 ```
 ├── docs/
 │   ├── DhanDrishti_Concept_Note.docx / .pdf    Round-1 submission (fill team block §11)
-│   ├── DhanDrishti_Pitch_Deck.pptx / .pdf      13 slides, product shots included
+│   ├── DhanDrishti_Pitch_Deck.pdf              13 slides — designed in HTML (build/deck.html)
+│   ├── DhanDrishti_Pitch_Deck.pptx             Editable legacy deck
 │   ├── architecture.md                         Full design document
 │   └── assets/                                 UI captures + model-output figures
 ├── prototype/
