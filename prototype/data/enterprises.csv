@@ -1,0 +1,201 @@
+enterprise_id,name,segment,district,state,has_loan
+ENT0001,Sahyog Kirana Store,kirana,Mandya,Karnataka,True
+ENT0002,Shivam Dairy Unit,dairy,Warangal,Telangana,False
+ENT0003,Nandini Tailors,tailoring,Mandya,Karnataka,True
+ENT0004,Sahyog Agri Inputs,agri_inputs,Samastipur,Bihar,False
+ENT0005,Bharat Food Works,food_processing,Madurai,Tamil Nadu,True
+ENT0006,Umang Handloom,handloom,Samastipur,Bihar,True
+ENT0007,Jai Kisan Kirana Store,kirana,Warangal,Telangana,False
+ENT0008,Gram Dairy Unit,dairy,Barabanki,Uttar Pradesh,True
+ENT0009,Sahyog Tailors,tailoring,Nadia,West Bengal,True
+ENT0010,Jai Kisan Agri Inputs,agri_inputs,Samastipur,Bihar,False
+ENT0011,Nandini Food Works,food_processing,Sabarkantha,Gujarat,False
+ENT0012,Maa Durga Handloom,handloom,Nashik,Maharashtra,True
+ENT0013,Annapurna Kirana Store,kirana,Nashik,Maharashtra,False
+ENT0014,Radha Dairy Unit,dairy,Samastipur,Bihar,True
+ENT0015,Basant Tailors,tailoring,Nadia,West Bengal,False
+ENT0016,Sona Agri Inputs,agri_inputs,Mandya,Karnataka,True
+ENT0017,Gram Food Works,food_processing,Nadia,West Bengal,True
+ENT0018,Hari Om Handloom,handloom,Madurai,Tamil Nadu,False
+ENT0019,Lakshmi Kirana Store,kirana,Sabarkantha,Gujarat,True
+ENT0020,Hari Om Dairy Unit,dairy,Madurai,Tamil Nadu,True
+ENT0021,Lakshmi Tailors,tailoring,Warangal,Telangana,True
+ENT0022,Lakshmi Agri Inputs,agri_inputs,Sabarkantha,Gujarat,False
+ENT0023,Radha Food Works,food_processing,Mandya,Karnataka,True
+ENT0024,Kisan Handloom,handloom,Warangal,Telangana,False
+ENT0025,Chetna Kirana Store,kirana,Samastipur,Bihar,True
+ENT0026,Nandini Dairy Unit,dairy,Nashik,Maharashtra,True
+ENT0027,Chetna Tailors,tailoring,Mandya,Karnataka,True
+ENT0028,Gram Agri Inputs,agri_inputs,Barabanki,Uttar Pradesh,True
+ENT0029,Ganga Food Works,food_processing,Samastipur,Bihar,True
+ENT0030,Ganga Handloom,handloom,Mandya,Karnataka,True
+ENT0031,Surya Kirana Store,kirana,Warangal,Telangana,True
+ENT0032,Sahyog Dairy Unit,dairy,Sabarkantha,Gujarat,True
+ENT0033,Umang Tailors,tailoring,Sabarkantha,Gujarat,True
+ENT0034,Basant Agri Inputs,agri_inputs,Samastipur,Bihar,False
+ENT0035,Sahyog Food Works,food_processing,Nashik,Maharashtra,True
+ENT0036,Bharat Handloom,handloom,Sabarkantha,Gujarat,False
+ENT0037,Nandini Kirana Store,kirana,Nadia,West Bengal,True
+ENT0038,Maa Durga Dairy Unit,dairy,Nashik,Maharashtra,True
+ENT0039,Sahyog Tailors 2,tailoring,Barabanki,Uttar Pradesh,False
+ENT0040,Sahyog Agri Inputs 2,agri_inputs,Sabarkantha,Gujarat,True
+ENT0041,Basant Food Works,food_processing,Madurai,Tamil Nadu,False
+ENT0042,Jai Kisan Handloom,handloom,Nashik,Maharashtra,True
+ENT0043,Sahyog Kirana Store 2,kirana,Barabanki,Uttar Pradesh,True
+ENT0044,Bharat Dairy Unit,dairy,Sabarkantha,Gujarat,True
+ENT0045,Pragati Tailors,tailoring,Madurai,Tamil Nadu,True
+ENT0046,Gram Agri Inputs 2,agri_inputs,Sabarkantha,Gujarat,True
+ENT0047,Jai Kisan Food Works,food_processing,Mandya,Karnataka,False
+ENT0048,Lakshmi Handloom,handloom,Barabanki,Uttar Pradesh,True
+ENT0049,Vikas Kirana Store,kirana,Nadia,West Bengal,True
+ENT0050,Sahyog Dairy Unit 2,dairy,Sabarkantha,Gujarat,True
+ENT0051,Bharat Tailors,tailoring,Nashik,Maharashtra,False
+ENT0052,Radha Agri Inputs,agri_inputs,Mandya,Karnataka,True
+ENT0053,Basant Food Works 2,food_processing,Nadia,West Bengal,False
+ENT0054,Umang Handloom 2,handloom,Sabarkantha,Gujarat,False
+ENT0055,Jai Kisan Kirana Store 2,kirana,Mandya,Karnataka,True
+ENT0056,Jai Kisan Dairy Unit,dairy,Barabanki,Uttar Pradesh,True
+ENT0057,Maa Durga Tailors,tailoring,Mandya,Karnataka,True
+ENT0058,Annapurna Agri Inputs,agri_inputs,Barabanki,Uttar Pradesh,True
+ENT0059,Umang Food Works,food_processing,Barabanki,Uttar Pradesh,True
+ENT0060,Annapurna Handloom,handloom,Nadia,West Bengal,False
+ENT0061,Hari Om Kirana Store,kirana,Nadia,West Bengal,False
+ENT0062,Radha Dairy Unit 2,dairy,Sabarkantha,Gujarat,False
+ENT0063,Chetna Tailors 2,tailoring,Warangal,Telangana,True
+ENT0064,Lakshmi Agri Inputs 2,agri_inputs,Nashik,Maharashtra,True
+ENT0065,Kisan Food Works,food_processing,Warangal,Telangana,True
+ENT0066,Kisan Handloom 2,handloom,Madurai,Tamil Nadu,False
+ENT0067,Hari Om Kirana Store 2,kirana,Sabarkantha,Gujarat,True
+ENT0068,Hari Om Dairy Unit 2,dairy,Barabanki,Uttar Pradesh,True
+ENT0069,Ganga Tailors,tailoring,Sabarkantha,Gujarat,False
+ENT0070,Hari Om Agri Inputs,agri_inputs,Nadia,West Bengal,True
+ENT0071,Vikas Food Works,food_processing,Barabanki,Uttar Pradesh,True
+ENT0072,Surya Handloom,handloom,Warangal,Telangana,True
+ENT0073,Jai Kisan Kirana Store 3,kirana,Sabarkantha,Gujarat,False
+ENT0074,Radha Dairy Unit 3,dairy,Warangal,Telangana,False
+ENT0075,Kisan Tailors,tailoring,Warangal,Telangana,True
+ENT0076,Gram Agri Inputs 3,agri_inputs,Nadia,West Bengal,True
+ENT0077,Ganga Food Works 2,food_processing,Mandya,Karnataka,False
+ENT0078,Basant Handloom,handloom,Sabarkantha,Gujarat,True
+ENT0079,Bharat Kirana Store,kirana,Nashik,Maharashtra,False
+ENT0080,Vikas Dairy Unit,dairy,Warangal,Telangana,False
+ENT0081,Annapurna Tailors,tailoring,Warangal,Telangana,False
+ENT0082,Annapurna Agri Inputs 2,agri_inputs,Warangal,Telangana,True
+ENT0083,Lakshmi Food Works,food_processing,Sabarkantha,Gujarat,True
+ENT0084,Lakshmi Handloom 2,handloom,Barabanki,Uttar Pradesh,False
+ENT0085,Annapurna Kirana Store 2,kirana,Nashik,Maharashtra,True
+ENT0086,Ganga Dairy Unit,dairy,Nashik,Maharashtra,False
+ENT0087,Basant Tailors 2,tailoring,Barabanki,Uttar Pradesh,False
+ENT0088,Gram Agri Inputs 4,agri_inputs,Madurai,Tamil Nadu,False
+ENT0089,Shivam Food Works,food_processing,Nashik,Maharashtra,True
+ENT0090,Gram Handloom,handloom,Mandya,Karnataka,True
+ENT0091,Shivam Kirana Store,kirana,Barabanki,Uttar Pradesh,True
+ENT0092,Radha Dairy Unit 4,dairy,Nashik,Maharashtra,False
+ENT0093,Chetna Tailors 3,tailoring,Madurai,Tamil Nadu,False
+ENT0094,Lakshmi Agri Inputs 3,agri_inputs,Barabanki,Uttar Pradesh,False
+ENT0095,Nandini Food Works 2,food_processing,Nadia,West Bengal,True
+ENT0096,Sona Handloom,handloom,Warangal,Telangana,True
+ENT0097,Lakshmi Kirana Store 2,kirana,Nadia,West Bengal,False
+ENT0098,Bharat Dairy Unit 2,dairy,Nadia,West Bengal,False
+ENT0099,Pragati Tailors 2,tailoring,Madurai,Tamil Nadu,True
+ENT0100,Vikas Agri Inputs,agri_inputs,Barabanki,Uttar Pradesh,False
+ENT0101,Jai Kisan Food Works 2,food_processing,Nadia,West Bengal,False
+ENT0102,Basant Handloom 2,handloom,Barabanki,Uttar Pradesh,False
+ENT0103,Bharat Kirana Store 2,kirana,Mandya,Karnataka,True
+ENT0104,Jai Kisan Dairy Unit 2,dairy,Barabanki,Uttar Pradesh,True
+ENT0105,Pragati Tailors 3,tailoring,Mandya,Karnataka,True
+ENT0106,Hari Om Agri Inputs 2,agri_inputs,Madurai,Tamil Nadu,False
+ENT0107,Hari Om Food Works,food_processing,Sabarkantha,Gujarat,True
+ENT0108,Radha Handloom,handloom,Nadia,West Bengal,False
+ENT0109,Maa Durga Kirana Store,kirana,Nadia,West Bengal,False
+ENT0110,Pragati Dairy Unit,dairy,Warangal,Telangana,True
+ENT0111,Kisan Tailors 2,tailoring,Barabanki,Uttar Pradesh,False
+ENT0112,Nandini Agri Inputs,agri_inputs,Madurai,Tamil Nadu,False
+ENT0113,Annapurna Food Works,food_processing,Sabarkantha,Gujarat,True
+ENT0114,Kisan Handloom 3,handloom,Warangal,Telangana,True
+ENT0115,Jai Kisan Kirana Store 4,kirana,Samastipur,Bihar,False
+ENT0116,Sahyog Dairy Unit 3,dairy,Warangal,Telangana,True
+ENT0117,Sahyog Tailors 3,tailoring,Warangal,Telangana,True
+ENT0118,Umang Agri Inputs,agri_inputs,Nadia,West Bengal,False
+ENT0119,Umang Food Works 2,food_processing,Nashik,Maharashtra,True
+ENT0120,Ganga Handloom 2,handloom,Mandya,Karnataka,False
+ENT0121,Chetna Kirana Store 2,kirana,Nashik,Maharashtra,False
+ENT0122,Radha Dairy Unit 5,dairy,Nadia,West Bengal,False
+ENT0123,Ganga Tailors 2,tailoring,Warangal,Telangana,True
+ENT0124,Sona Agri Inputs 2,agri_inputs,Nadia,West Bengal,False
+ENT0125,Umang Food Works 3,food_processing,Sabarkantha,Gujarat,True
+ENT0126,Basant Handloom 3,handloom,Warangal,Telangana,False
+ENT0127,Basant Kirana Store,kirana,Nadia,West Bengal,False
+ENT0128,Shivam Dairy Unit 2,dairy,Madurai,Tamil Nadu,True
+ENT0129,Surya Tailors,tailoring,Warangal,Telangana,True
+ENT0130,Hari Om Agri Inputs 3,agri_inputs,Warangal,Telangana,True
+ENT0131,Gram Food Works 2,food_processing,Madurai,Tamil Nadu,True
+ENT0132,Sona Handloom 2,handloom,Mandya,Karnataka,True
+ENT0133,Kisan Kirana Store,kirana,Warangal,Telangana,True
+ENT0134,Umang Dairy Unit,dairy,Sabarkantha,Gujarat,True
+ENT0135,Sona Tailors,tailoring,Madurai,Tamil Nadu,False
+ENT0136,Shivam Agri Inputs,agri_inputs,Madurai,Tamil Nadu,True
+ENT0137,Vikas Food Works 2,food_processing,Warangal,Telangana,False
+ENT0138,Basant Handloom 4,handloom,Madurai,Tamil Nadu,True
+ENT0139,Basant Kirana Store 2,kirana,Samastipur,Bihar,True
+ENT0140,Jai Kisan Dairy Unit 3,dairy,Mandya,Karnataka,False
+ENT0141,Sona Tailors 2,tailoring,Nadia,West Bengal,False
+ENT0142,Hari Om Agri Inputs 4,agri_inputs,Nashik,Maharashtra,True
+ENT0143,Sona Food Works,food_processing,Mandya,Karnataka,True
+ENT0144,Chetna Handloom,handloom,Samastipur,Bihar,False
+ENT0145,Shivam Kirana Store 2,kirana,Samastipur,Bihar,False
+ENT0146,Umang Dairy Unit 2,dairy,Nashik,Maharashtra,True
+ENT0147,Lakshmi Tailors 2,tailoring,Barabanki,Uttar Pradesh,True
+ENT0148,Hari Om Agri Inputs 5,agri_inputs,Mandya,Karnataka,True
+ENT0149,Ganga Food Works 3,food_processing,Sabarkantha,Gujarat,True
+ENT0150,Pragati Handloom,handloom,Warangal,Telangana,False
+ENT0151,Radha Kirana Store,kirana,Samastipur,Bihar,False
+ENT0152,Jai Kisan Dairy Unit 4,dairy,Mandya,Karnataka,False
+ENT0153,Ganga Tailors 3,tailoring,Sabarkantha,Gujarat,True
+ENT0154,Shivam Agri Inputs 2,agri_inputs,Samastipur,Bihar,True
+ENT0155,Surya Food Works,food_processing,Nadia,West Bengal,True
+ENT0156,Jai Kisan Handloom 2,handloom,Samastipur,Bihar,False
+ENT0157,Sahyog Kirana Store 3,kirana,Nashik,Maharashtra,False
+ENT0158,Nandini Dairy Unit 2,dairy,Barabanki,Uttar Pradesh,True
+ENT0159,Maa Durga Tailors 2,tailoring,Barabanki,Uttar Pradesh,True
+ENT0160,Nandini Agri Inputs 2,agri_inputs,Warangal,Telangana,False
+ENT0161,Pragati Food Works,food_processing,Sabarkantha,Gujarat,True
+ENT0162,Hari Om Handloom 2,handloom,Barabanki,Uttar Pradesh,False
+ENT0163,Shivam Kirana Store 3,kirana,Sabarkantha,Gujarat,True
+ENT0164,Jai Kisan Dairy Unit 5,dairy,Madurai,Tamil Nadu,True
+ENT0165,Vikas Tailors,tailoring,Samastipur,Bihar,False
+ENT0166,Maa Durga Agri Inputs,agri_inputs,Warangal,Telangana,True
+ENT0167,Kisan Food Works 2,food_processing,Samastipur,Bihar,False
+ENT0168,Sona Handloom 3,handloom,Madurai,Tamil Nadu,False
+ENT0169,Chetna Kirana Store 3,kirana,Warangal,Telangana,True
+ENT0170,Vikas Dairy Unit 2,dairy,Nashik,Maharashtra,False
+ENT0171,Gram Tailors,tailoring,Warangal,Telangana,True
+ENT0172,Basant Agri Inputs 2,agri_inputs,Sabarkantha,Gujarat,False
+ENT0173,Ganga Food Works 4,food_processing,Warangal,Telangana,True
+ENT0174,Basant Handloom 5,handloom,Sabarkantha,Gujarat,True
+ENT0175,Sona Kirana Store,kirana,Warangal,Telangana,True
+ENT0176,Jai Kisan Dairy Unit 6,dairy,Mandya,Karnataka,True
+ENT0177,Basant Tailors 3,tailoring,Mandya,Karnataka,True
+ENT0178,Nandini Agri Inputs 3,agri_inputs,Mandya,Karnataka,True
+ENT0179,Gram Food Works 3,food_processing,Sabarkantha,Gujarat,True
+ENT0180,Basant Handloom 6,handloom,Samastipur,Bihar,True
+ENT0181,Sahyog Kirana Store 4,kirana,Nadia,West Bengal,True
+ENT0182,Kisan Dairy Unit,dairy,Warangal,Telangana,True
+ENT0183,Umang Tailors 2,tailoring,Nadia,West Bengal,True
+ENT0184,Kisan Agri Inputs,agri_inputs,Nashik,Maharashtra,True
+ENT0185,Kisan Food Works 3,food_processing,Mandya,Karnataka,False
+ENT0186,Nandini Handloom,handloom,Sabarkantha,Gujarat,False
+ENT0187,Gram Kirana Store,kirana,Sabarkantha,Gujarat,True
+ENT0188,Basant Dairy Unit,dairy,Nadia,West Bengal,True
+ENT0189,Maa Durga Tailors 3,tailoring,Madurai,Tamil Nadu,True
+ENT0190,Chetna Agri Inputs,agri_inputs,Samastipur,Bihar,True
+ENT0191,Radha Food Works 2,food_processing,Nadia,West Bengal,False
+ENT0192,Annapurna Handloom 2,handloom,Nadia,West Bengal,True
+ENT0193,Lakshmi Kirana Store 3,kirana,Samastipur,Bihar,True
+ENT0194,Pragati Dairy Unit 2,dairy,Barabanki,Uttar Pradesh,False
+ENT0195,Nandini Tailors 2,tailoring,Nadia,West Bengal,True
+ENT0196,Gram Agri Inputs 5,agri_inputs,Nadia,West Bengal,True
+ENT0197,Sona Food Works 2,food_processing,Warangal,Telangana,True
+ENT0198,Gram Handloom 2,handloom,Madurai,Tamil Nadu,False
+ENT0199,Annapurna Kirana Store 3,kirana,Madurai,Tamil Nadu,False
+ENT0200,Jai Kisan Dairy Unit 7,dairy,Barabanki,Uttar Pradesh,True

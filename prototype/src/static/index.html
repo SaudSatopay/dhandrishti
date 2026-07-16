@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DhanDrishti · Cash-flow foresight for rural micro enterprises</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👁</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-lang="en">
+
+<div class="sky" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="graph-paper" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="comet" aria-hidden="true"></div>
+<div class="comet c2" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- sticky minibar -->
+<nav class="minibar" id="minibar" aria-label="Toolbar">
+  <div class="mb-brand">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="24" height="24">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2.6"/>
+        <path d="M6 22 Q13 12 20 20 T34 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+      </svg>
+    </span>
+    <b>DhanDrishti</b> <span>धन-दृष्टि</span>
+  </div>
+  <div class="mb-right">
+    <button class="kbd-hint" id="palette-hint" title="Quick search">Ctrl K · search</button>
+    <span class="live-chip"><span class="live-dot"></span><span id="clock">—</span></span>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn active" aria-pressed="true">EN</button>
+      <button id="lang-hi" class="lang-btn" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+</nav>
+
+<!-- hero -->
+<header class="hero">
+  <p class="hero-kicker">NABARD Hackathon · GFF 2026 · Working Prototype</p>
+  <h1 class="hero-title" aria-label="See the flow before it runs dry">
+    <span class="row"><span>See the <em class="flow-word">flow</em></span></span>
+    <span class="row"><span>before it runs dry.</span></span>
+  </h1>
+  <p class="hero-sub"><b>DhanDrishti</b> <span class="hindi">धन-दृष्टि</span> reads UPI rhythms, mandi prices and monsoon signals to forecast every rural micro enterprise's cash flow <b>12 weeks ahead</b> — and warns the field officer, in her language, while there is still time to act.</p>
+  <div class="hero-meta">
+    <span class="meta-chip">200 enterprises · 104 weeks</span>
+    <span class="meta-chip">P10/P50/P90 · conformal</span>
+    <span class="meta-chip">EN / हिंदी reason codes</span>
+    <span class="meta-chip">works offline</span>
+  </div>
+  <div class="pulse-wrap" aria-hidden="true">
+    <svg id="pulse-svg" preserveAspectRatio="none"></svg>
+  </div>
+</header>
+
+<!-- live alert ticker -->
+<div class="ticker" id="ticker" aria-label="Live early-warning ticker">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<main>
+  <!-- KPI band -->
+  <section class="kpi-band" id="kpi-band" aria-label="Portfolio key indicators"></section>
+
+  <div class="section-head reveal">
+    <span class="no">01</span>
+    <h2 id="s-portfolio-title">Early-warning watchlist</h2>
+    <span class="rule"></span>
+  </div>
+
+  <div class="layout">
+    <!-- Portfolio -->
+    <section class="panel portfolio reveal" aria-label="Portfolio watchlist">
+      <div class="panel-head">
+        <h3 id="s-portfolio-sub">Portfolio · ranked by risk</h3>
+        <span class="panel-actions">
+          <span class="panel-sub" id="portfolio-count"></span>
+          <button class="table-toggle" id="csv-btn" title="Download the filtered watchlist as CSV">⬇ CSV</button>
+        </span>
+      </div>
+      <div class="filters" role="search">
+        <input id="f-search" type="search" placeholder="Search enterprise…" aria-label="Search enterprise">
+        <select id="f-segment" aria-label="Filter by segment"><option value="">All segments</option></select>
+        <select id="f-district" aria-label="Filter by district"><option value="">All districts</option></select>
+        <div class="tier-filter" role="group" aria-label="Filter by tier">
+          <button data-tier="" class="active">All</button>
+          <button data-tier="HIGH">High</button>
+          <button data-tier="WATCH">Watch</button>
+          <button data-tier="STABLE">Stable</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="portfolio-table">
+          <thead>
+            <tr>
+              <th>Enterprise</th>
+              <th>Segment · District</th>
+              <th class="num sortable" data-sort="risk_score" aria-sort="descending">Risk</th>
+              <th class="spark-col">Net cash flow · 26w</th>
+              <th class="num sortable" data-sort="runway_weeks">Runway</th>
+              <th class="num sortable" data-sort="inflow_ma4">Weekly inflow</th>
+              <th>Signals</th>
+            </tr>
+          </thead>
+          <tbody id="portfolio-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Side column -->
+    <aside class="side">
+      <section class="panel reveal" style="--i:1" aria-label="Risk by segment">
+        <div class="panel-head"><h3>Watchlist by segment</h3></div>
+        <div id="segment-chart"></div>
+      </section>
+      <section class="panel model-card reveal" style="--i:2" aria-label="Model card">
+        <div class="panel-head"><h3>Model card</h3><span class="panel-sub">temporal holdout</span></div>
+        <dl id="model-card-body"></dl>
+        <p class="fineprint">Gradient-boosted quantile forecaster (conformalized, 80% band) +
+        monotonicity-constrained early-warning classifier, Platt-calibrated.
+        Reason codes via TreeSHAP. CPU-only; deployable on-prem at an RRB.</p>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<!-- Drill-down -->
+<div class="drawer-scrim" id="drawer-scrim" hidden></div>
+<article class="drawer" id="drawer" hidden aria-modal="true" role="dialog" aria-labelledby="d-name">
+  <header class="drawer-head">
+    <div>
+      <h2 id="d-name"></h2>
+      <p class="drawer-sub" id="d-sub"></p>
+    </div>
+    <div class="drawer-head-right">
+      <div class="dial-wrap" id="d-dial">
+        <svg viewBox="0 0 92 92" width="92" height="92">
+          <circle class="dial-track" cx="46" cy="46" r="40"></circle>
+          <circle class="dial-arc" id="dial-arc" cx="46" cy="46" r="40"></circle>
+        </svg>
+        <div class="dial-center">
+          <div>
+            <div class="dial-num" id="d-score">0</div>
+            <div class="dial-label" id="d-score-label">risk score</div>
+          </div>
+        </div>
+      </div>
+      <button class="close-btn" id="drawer-close" aria-label="Close">×</button>
+    </div>
+  </header>
+  <div class="drawer-body">
+    <div class="d-actions">
+      <button class="table-toggle" id="sms-btn">📱 <span id="t-sms">SMS nudge preview</span></button>
+      <button class="table-toggle" id="print-btn">🖨 <span id="t-print">Print field brief</span></button>
+    </div>
+
+    <section class="d-kpis" id="d-kpis"></section>
+
+    <section class="d-section" id="d-flags-section">
+      <h3 id="t-flags">Early-warning flags</h3>
+      <div id="d-flags"></div>
+      <div id="sms-preview"></div>
+    </section>
+
+    <section class="d-section">
+      <h3 id="t-reasons">Why this score — top drivers</h3>
+      <ol class="reasons" id="d-reasons"></ol>
+    </section>
+
+    <section class="d-section">
+      <h3 id="t-scenario">Scenario studio — what if?</h3>
+      <div class="scenario" id="d-scenario"></div>
+    </section>
+
+    <section class="d-section">
+      <div class="chart-head">
+        <h3 id="t-forecast">Weekly net cash flow — 12-week forecast</h3>
+        <button class="table-toggle" id="fc-table-btn" aria-pressed="false">Table</button>
+      </div>
+      <div id="d-forecast"></div>
+    </section>
+
+    <section class="d-section">
+      <div class="chart-head">
+        <h3 id="t-balance">Projected cash balance — stress scenario</h3>
+        <button class="table-toggle" id="bal-table-btn" aria-pressed="false">Table</button>
+      </div>
+      <div id="d-balance"></div>
+    </section>
+  </div>
+</article>
+
+<div class="tooltip" id="tooltip" hidden></div>
+
+<!-- command palette -->
+<div class="palette-scrim" id="palette-scrim" hidden></div>
+<div class="palette" id="palette" hidden role="dialog" aria-label="Quick search">
+  <input id="palette-input" placeholder="Search 200 enterprises… name, district, segment" autocomplete="off">
+  <div class="palette-list" id="palette-list"></div>
+</div>
+
+<!-- printable field brief -->
+<div class="print-brief" id="print-brief"></div>
+
+<footer class="foot">
+  <span class="sig-line">"<span>दृष्टि</span> — sight, before the storm."&nbsp; Synthetic demonstration data · no real enterprise or personal data.</span>
+  <span>Consent-first: Account Aggregator rails · DPDP-aligned · offline &amp; low-network by design.</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

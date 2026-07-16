@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-16",
+  "data": {
+    "n_enterprises": 200,
+    "n_weeks": 104,
+    "segments": [
+      "agri_inputs",
+      "dairy",
+      "food_processing",
+      "handloom",
+      "kirana",
+      "tailoring"
+    ],
+    "districts": [
+      "Barabanki",
+      "Madurai",
+      "Mandya",
+      "Nadia",
+      "Nashik",
+      "Sabarkantha",
+      "Samastipur",
+      "Warangal"
+    ],
+    "tier_counts": {
+      "STABLE": 186,
+      "HIGH": 10,
+      "WATCH": 4
+    }
+  },
+  "forecaster": {
+    "mae_p50": 1800.5,
+    "mae_seasonal_naive": 2413.3,
+    "skill_vs_naive": 0.254,
+    "pinball_p10": 382.4,
+    "pinball_p50": 900.3,
+    "pinball_p90": 499.0,
+    "p10_p90_coverage_raw": 0.715,
+    "p10_p90_coverage_conformal": 0.8,
+    "holdout_rows": 36000
+  },
+  "classifier": {
+    "auc": 0.825,
+    "avg_precision": 0.507,
+    "calibration": "platt_on_temporal_holdout",
+    "monotone_constrained": true,
+    "median_lead_weeks": 3.0,
+    "events_detected": 11,
+    "events_in_holdout": 26,
+    "train_rows": 14040,
+    "holdout_rows": 2952,
+    "base_rate": 0.0393
+  }
+}

@@ -1,0 +1,10 @@
+# local tooling / machine-specific
+.claude/
+__pycache__/
+*.pyc
+node_modules/
+
+# scratch / OS
+Thumbs.db
+.DS_Store
+*.tmp
